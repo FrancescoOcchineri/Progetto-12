@@ -1,0 +1,1 @@
+export const token = 'http://localhost/Wordpress/Esercizi/Esercizio-giorno46-API/wp/wp-json/wp/v2/'
