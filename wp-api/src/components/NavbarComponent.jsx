@@ -23,7 +23,7 @@ export default function NavbarComponent() {
   return (
     <MDBNavbar expand='lg' style={{backgroundColor: '#332D2D'}}>
       <MDBContainer fluid>
-        <MDBNavbarBrand href='#' className='text-light'><img src='https://icon-library.com/images/press-icon-png/press-icon-png-15.jpg' alt='Logo' width={40}></img> NeWP</MDBNavbarBrand>
+        <MDBNavbarBrand href='/' className='text-light'><img src='https://icon-library.com/images/press-icon-png/press-icon-png-15.jpg' alt='Logo' width={40}></img> NeWP</MDBNavbarBrand>
 
         <MDBNavbarToggler
           aria-controls='navbarSupportedContent'
@@ -47,25 +47,13 @@ export default function NavbarComponent() {
             <Link to="/blog">
               <MDBNavbarLink className='text-light'>Blog</MDBNavbarLink>
               </Link>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <MDBDropdown>
-                <MDBDropdownToggle tag='a' className='nav-link text-light' role='button'>
-                  Dropdown
-                </MDBDropdownToggle>
-                <MDBDropdownMenu>
-                  <MDBDropdownItem link>Action</MDBDropdownItem>
-                  <MDBDropdownItem link>Another action</MDBDropdownItem>
-                  <MDBDropdownItem link>Something else here</MDBDropdownItem>
-                </MDBDropdownMenu>
-              </MDBDropdown>
+              </MDBNavbarItem>
+              <MDBNavbarItem>
+              <Link to="/users">
+              <MDBNavbarLink className='text-light'>Utenti</MDBNavbarLink>
+              </Link>
             </MDBNavbarItem>
           </MDBNavbarNav>
-
-          <form className='d-flex input-group w-auto'>
-            <input type='search' className='form-control' placeholder='Cerca' aria-label='Search' />
-            <MDBBtn color='primary'><i className="fas fa-search"></i></MDBBtn>
-          </form>
         </MDBCollapse>
       </MDBContainer>
     </MDBNavbar>

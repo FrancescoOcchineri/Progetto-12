@@ -11,6 +11,7 @@ import {
 import {token} from '../dati/dati'
 import axios from 'axios';
 import he from 'he';
+import { Link } from 'react-router-dom';
 
 export default function HomePostsComponent() {
 
@@ -84,13 +85,17 @@ export default function HomePostsComponent() {
         <p className="text-muted">
         {htmlToText(he.decode(posts[0].excerpt.rendered))}
         </p>
+        <Link to={`/post/${posts[0].id}`}>
+  <MDBBtn>Continua a leggere</MDBBtn>
+</Link>
       </MDBCol>
        )}
     </MDBRow>
     <MDBRow className="gx-lg-5">
       <MDBCol lg="6" md="6" className="mb-4 mb-lg-0">
       <div>
-        {posts.slice(0,4).map(post => (
+      {posts && (
+    posts.slice(0,4).map(post => (
           <a href="#!" className="text-dark">
             <MDBRow className="mb-4 border-bottom pb-2">
               <MDBCol size="3">
@@ -104,20 +109,22 @@ export default function HomePostsComponent() {
 
               <MDBCol size="9">
                 <p className="mb-2">
-                  <strong>{post.title.rendered}</strong>
+                <Link to={`/post/${post.id}`}><strong className='text-black'>{post.title.rendered}</strong></Link>
                 </p>
                 <p>
-                  <u>{post.date.slice(0,9)}</u>
+                  <u>{post.date.slice(0,10)}</u>
                 </p>
               </MDBCol>
             </MDBRow>
           </a>
-))}
+        ))
+      )}
         </div>
       </MDBCol>
       <MDBCol lg="6" md="6" className="mb-4 mb-lg-0">
-      <div>
-        {posts.slice(5,9).map(post => (
+        <div>
+      {posts && (
+    posts.slice(5,9).map(post => (
           <a href="#!" className="text-dark">
             <MDBRow className="mb-4 border-bottom pb-2">
               <MDBCol size="3">
@@ -131,15 +138,16 @@ export default function HomePostsComponent() {
 
               <MDBCol size="9">
                 <p className="mb-2">
-                  <strong>{post.title.rendered}</strong>
+                <Link to={`/post/${post.id}`}><strong className='text-black'>{post.title.rendered}</strong></Link>
                 </p>
                 <p>
-                  <u>{post.date.slice(0,9)}</u>
+                  <u>{post.date.slice(0,10)}</u>
                 </p>
               </MDBCol>
             </MDBRow>
           </a>
-        ))}
+        ))
+      )}
         </div>
       </MDBCol>
     </MDBRow>
